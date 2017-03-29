@@ -1,0 +1,31 @@
+---
+server:
+  port: 8085
+
+samplepong:
+  ribbon:
+    DeploymentContextBasedVipAddresses: backendApp
+    ReadTimeout: 5000
+    MaxAutoRetries: 2
+
+samplepongdirect:
+  ribbon:
+    DeploymentContextBasedVipAddresses: backendApp
+    listOfServers: localhost:8082
+    ReadTimeout: 5000
+    MaxAutoRetries: 2
+
+another:
+  key: anotherkeyvalue
+
+
+hystrix:
+  command:
+    pongCommand:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000
+      circuitBreaker:
+        requestVolumeThreshold: 3
+        sleepWindowInMilliseconds: 2000

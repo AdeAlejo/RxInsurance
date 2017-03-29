@@ -1,0 +1,50 @@
+ <div class="row">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Get Insurances Table</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row" ng-if="errorMessage != ''">
+                    <div class="col-xs-12">
+                        <p class="bg-danger text-center">
+                            <span ng-bind="errorMessage"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <form>
+                    <div class="form-group">
+                        <label for="inputmessage">Insurances Table</label>
+                        <!--<input type="text" class="form-control" id="inputmessage" ng-model="inputMessage" placeholder="Enter Message to Send">-->
+                    </div>
+                    <div class="form-group" ng-if="message != ''">
+                        <h3><span class="label label-primary">Insurance: {{insurance}}</span></h3>
+                        <label class="label label-success"></label>
+
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                              <tr>
+                                <th>Code</th>
+                                <th>Car Type (A-Z)</th>
+                                <th>Price Modifier</th>
+                              </tr>
+                            </thead>                            
+                            
+                            <tr ng-repeat="category in categories | orderBy : 'carType'">
+                              <td>{{ category.code }}</td>
+                              <td>{{ category.carType }}</td>
+                              <td>{{ category.priceModifier }}</td>
+                            </tr>
+                        </table>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary" ng-click="getMessageResponse('inputMessage')">Get Categories List</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
