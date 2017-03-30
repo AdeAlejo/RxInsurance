@@ -109,7 +109,6 @@
     <modules>
     	<module>config</module>
     	<module>eureka</module>
-    	<module>backendApp</module>
     	<module>clientWebApp</module>
     </modules>
 </project>
